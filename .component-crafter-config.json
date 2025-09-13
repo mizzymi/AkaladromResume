@@ -1,0 +1,179 @@
+{
+    "showExtraDetails": false,
+    "specialProperty": "|PR0PS|",
+    "commands": [
+        {
+            "name": "component",
+            "description": "with this command you can create a component on the Akaladrom-frontend application.",
+            "startingPath": [
+                "Akaladrom-frontend",
+                "src",
+                "components"
+            ],
+            "scaffold": [
+                {
+                    "type": "folder",
+                    "name": "|PR0PS|",
+                    "content": [
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.css",
+                            "content": ""
+                        },
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.tsx",
+                            "content": "import { type FC } from 'react';\nimport './|PR0PS|.css';\n\n/**\n * **PROPERTIES OF APP COMPONENT:**\n * \n * This interface currently have 0 properties but if you add any property \n * you must document it and type it correctly for the usability of the component.\n * \n */\ninterface |PR0PS|Props {\n\n}\n\n/**\n * **DESCRIPTION:**\n * \n * Write something here about the |PR0PS| component.\n * \n * **EXAMPLE OF USE:**\n * @example\n * return (\n *   <|PR0PS|/>\n * )\n */\nexport const |PR0PS|: FC<|PR0PS|Props> = ({ }) => {\n\n  return (\n    <div data-testid='|PR0PS|-Component'>\n      Entry Point for |PR0PS| component. Good Luck!\n    </div>\n  )\n}\n"
+                        },
+                        {
+                            "type": "folder",
+                            "name": "__test__",
+                            "content": [
+                                {
+                                    "type": "file",
+                                    "name": "|PR0PS|.spec.tsx",
+                                    "content": "import { |PR0PS| } from '../|PR0PS|';\nimport { render, screen } from '@testing-library/react';\n\ndescribe('Test for |PR0PS| component', () => {\n\n    test('1.- Renders the <|PR0PS|/> component', async () => {\n        render(<|PR0PS|/>);\n        const component = await screen.findByTestId('|PR0PS|-Component');\n        expect(component).toBeInTheDocument();\n    });\n\n});\n"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "hook",
+            "description": "with this command you can create a custom hook on the Akaladrom-frontend application.",
+            "startingPath": [
+                "Akaladrom-frontend",
+                "src",
+                "hooks"
+            ],
+            "scaffold": [
+                {
+                    "type": "folder",
+                    "name": "use|PR0PS|",
+                    "content": [
+                        {
+                            "type": "file",
+                            "name": "use|PR0PS|.ts",
+                            "content": "/**\n * **DESCRIPTION:**\n * \n * With this interface we can represent the return of the\n * custom hook of the use|PR0PS|, that this custom\n * hook will return only one property that an object of this\n * type.\n */\ninterface Use|PR0PS|Return {\n\n}\n\n/**\n * **DESCRIPTION:**\n * \n * You need to write a description of what the use|PR0PS| do on here.\n * \n * **RETURNS:**\n * \n * @returns returns an object with the properties of: \n * * need to write it\n * \n * **EXAMPLE OF USE:**\n * \n * @example\n * const { } = use|PR0PS|({}); \n */\nexport const use|PR0PS| = ({ }: Use|PR0PS|Props): Use|PR0PS|Return => {\n\n    return {\n\n    }\n\n}\n"
+                        },
+                        {
+                            "type": "folder",
+                            "name": "__test__",
+                            "content": [
+                                {
+                                    "type": "file",
+                                    "name": "use|PR0PS|.spec.ts",
+                                    "content": "import { use|PR0PS| } from '../use|PR0PS|';\nimport { renderHook } from '@testing-library/react';\nimport { getProviderRenderWrapper } from '../../../test-utils/getProviderRenderWrapper';\nimport type { ProviderWrapperType } from '../../../types/ProviderWrapperType';\nimport type { ProviderStoreType } from '../../../types/ProviderStoreType';\n\ndescribe('Test for use|PR0PS| custom hook', () => {\n    let store: ProviderStoreType;\n    let wrapper: ProviderWrapperType;\n    let result: { current: ReturnType<typeof use|PR0PS|> };\n\n    beforeEach(() => {\n        const { wrapper: Wrapper, store: Store } = getProviderRenderWrapper();\n        wrapper = Wrapper;\n        store = Store;\n        result = renderHook(() => use|PR0PS|({}), {\n            wrapper,\n        }).result;\n    });\n\n    test('1.- the custom hook return the correct properties', () => {\n        expect(result.current).toBeDefined();\n    });\n});\n"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ch",
+            "description": "with this command you can create a component with its hook on the Akaladrom-frontend application.",
+            "startingPath": [
+                "Akaladrom-frontend",
+                "src",
+                "components"
+            ],
+            "scaffold": [
+                {
+                    "type": "folder",
+                    "name": "|PR0PS|",
+                    "content": [
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.css",
+                            "content": ""
+                        },
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.tsx",
+                            "content": "import { use|PR0PS| } from '../../hooks/use|PR0PS|/use|PR0PS|';\nimport { type FC } from 'react';\nimport './|PR0PS|.css';\n\n/**\n * **PROPERTIES OF APP COMPONENT:**\n * \n * This interface currently have 0 properties but if you add any property \n * you must document it and type it correctly for the usability of the component.\n * \n */\ninterface |PR0PS|Props {\n\n}\n\n/**\n * **DESCRIPTION:**\n * \n * Write something here about the |PR0PS| component.\n * \n * **EXAMPLE OF USE:**\n * @example\n * return (\n *   <|PR0PS|/>\n * )\n */\nexport const |PR0PS|: FC<|PR0PS|Props> = ({ }) => {\n\n  const { } = use|PR0PS|({});\n\n  return (\n    <div data-testid='|PR0PS|-Component'>\n      Entry Point for |PR0PS| component. Good Luck!\n    </div>\n  )\n}\n"
+                        },
+                        {
+                            "type": "folder",
+                            "name": "__test__",
+                            "content": [
+                                {
+                                    "type": "file",
+                                    "name": "|PR0PS|.spec.tsx",
+                                    "content": "import { |PR0PS| } from '../|PR0PS|';\nimport { render, screen } from '@testing-library/react';\n\ndescribe('Test for |PR0PS| component', () => {\n\n    test('1.- Renders the <|PR0PS|/> component', async () => {\n        render(<|PR0PS|/>);\n        const component = await screen.findByTestId('|PR0PS|-Component');\n        expect(component).toBeInTheDocument();\n    });\n\n});\n"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+             "commandsAfter": [ "yarn craft hook |PR0PS|" ]
+        },
+        {
+            "name": "method",
+            "description": "with this command you can create a method with its hook on the Akaladrom-frontend application.",
+            "startingPath": [
+                "Akaladrom-frontend",
+                "src",
+                "methods"
+            ],
+            "scaffold": [
+                {
+                    "type": "folder",
+                    "name": "|PR0PS|",
+                    "content": [
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.ts",
+                            "content": "/**\n * **DESCRIPTION:**\n * \n * With this interface we can define the properties that |PR0PS|\n * method need but for now it need no properties.\n */\ninterface |PR0PS|Props {\n\n}\n\n/**\n * **DESCRIPTION:**\n * \n * You need to write a description of what the |PR0PS| do on here.\n * \n * ** PARAMETERS:**\n * \n * Right now you only need to pass an empty object.\n * \n * **EXAMPLE TO USE:**\n * \n * @example\n * |PR0PS|({});\n */\nexport const |PR0PS| = ({}: |PR0PS|Props) => {\n\n}\n"
+                        },
+                        {
+                            "type": "folder",
+                            "name": "__test__",
+                            "content": [
+                                {
+                                    "type": "file",
+                                    "name": "|PR0PS|.spec.ts",
+                                    "content": "import { |PR0PS| } from '../|PR0PS|';\n\ndescribe('Test for |PR0PS| method', () => {\n\n  \n\n});\n"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "reducer",
+            "description": "with this command you can create a reducer with its hook on the Akaladrom-frontend application.",
+            "startingPath": [
+                "Akaladrom-frontend",
+                "src",
+                "redux",
+                "reducers"
+            ],
+            "scaffold": [
+                {
+                    "type": "folder",
+                    "name": "|PR0PS|",
+                    "content": [
+                        {
+                            "type": "file",
+                            "name": "|PR0PS|.ts",
+                            "content": "import type { WritableDraft } from 'immer';\nimport type { AppSliceType } from '../../../types/AppSliceType';\nimport type { ActionWithPayload } from '../../../types/ActionWithPayload';\n\n/**\n * **DESCRIPTION:**\n * \n * With this action we can change the property of 'you need to write what property of the state you gonna modify'.\n * \n * **PARAMETERS:**\n * \n * @param state With this property we need to pass the actual state of the redux,\n * this prop is needed only when you pass this reducer on the slice of the initialization.\n * @param action With this property we need to pass the action with payload with a payload typed\n * as 'you need to put here what type have the action'. When you dipatch the reducer you only need to pass the payload but now when\n * we need to pass the Action for the slice to create it properlly.\n */\nexport const |PR0PS| = (state: WritableDraft<AppSliceType>, action: ActionWithPayload<any>): void => {\n\n}\n"
+                        },
+                        {
+                            "type": "file",
+                            "name": "__test__",
+                            "content": [
+
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

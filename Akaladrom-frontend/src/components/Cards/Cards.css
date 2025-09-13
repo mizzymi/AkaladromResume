@@ -1,0 +1,43 @@
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  color: #0f172a;
+  overflow: hidden;
+  user-select: none;
+}
+.card__content {
+  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+.card__title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.card__subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+.card__footer {
+  padding: 10px 14px 14px;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid #f1f5f9;
+}
+.card__btn {
+  appearance: none;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.card__btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #6366f1;
+}
+.card.is-selected {
+  box-shadow: 0 0 0 3px #6366f1;
+}

@@ -1,0 +1,31 @@
+.CardsContainer {
+  display: grid;
+  gap: 16px;
+}
+
+/* Responsive grid for the cards */
+.cards-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.pillar-media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16/9;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+/* Logos/símbolos*/
+.pillar-img {
+  max-width: 102%;
+  max-height: 102%;
+  object-fit: contain;
+}
+
+/* Optional tweaks for the card */
+.pillar-card {
+  overflow: hidden;
+}

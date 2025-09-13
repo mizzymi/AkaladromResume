@@ -1,0 +1,8 @@
+.LangSelector__select {
+  appearance: none;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: .95rem;
+}

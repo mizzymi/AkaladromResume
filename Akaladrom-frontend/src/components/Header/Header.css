@@ -1,0 +1,21 @@
+.AppHeader {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.AppHeader__left {
+  justify-self: start;
+}
+
+.AppHeader__center {
+  justify-self: center;
+}
+
+.AppHeader__right {
+  justify-self: end;
+}

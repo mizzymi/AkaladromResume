@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "workspaces": [
+        "Akaladrom-backend",
+        "Akaladrom-frontend"
+    ],
+    "scripts": {
+        "start": "yarn workspace Akaladrom-frontend start",
+        "test": "yarn workspace Akaladrom-frontend test"
+    },
+    "devDependencies": {
+        "component-crafter": "^2.0.17",
+        "concurrently": "^9.2.0",
+        "madge": "^8.0.0"
+    }
+}
