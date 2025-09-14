@@ -1,13 +1,14 @@
 .CardsContainer {
   display: grid;
   gap: 16px;
+  padding: 1rem 1.6rem;
 }
 
 /* Responsive grid for the cards */
 .cards-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
 .pillar-media {
@@ -28,4 +29,14 @@
 /* Optional tweaks for the card */
 .pillar-card {
   overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.pillar-card:hover {
+  transform: scale(1.2);
+}
+
+.pillar-card a {
+  text-decoration: none;
+  color: #000;
 }

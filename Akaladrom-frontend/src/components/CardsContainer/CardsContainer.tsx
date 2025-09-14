@@ -4,6 +4,7 @@ import { useTranslations } from "../../hooks/useTranslations/useTranslations";
 import { Cards } from "../Cards/Cards";
 import { getPillarImage } from "../../assets/pillars";
 import "./CardsContainer.css";
+import { useNavigate } from "react-router-dom";
 
 /**
  * **PROPERTIES OF APP COMPONENT:**
@@ -29,8 +30,8 @@ interface CardsContainerProps { }
  */
 export const CardsContainer: FC<CardsContainerProps> = ({ }) => {
   const { order, pillars } = useCardsContainer({});
-  const { t } = useTranslations({}); // 👈 tu hook tal cual
-
+  const { t } = useTranslations({});
+  const navigate = useNavigate();
   const sortedPillars = useMemo(
     () => order.map((k) => pillars.find((p) => p.key === k)).filter(Boolean),
     [order, pillars]
@@ -46,10 +47,14 @@ export const CardsContainer: FC<CardsContainerProps> = ({ }) => {
           const subtitle = t("ui.pillarSubtitle");
           const desc = t(`pillars.${key}.desc`);
           const imgSrc = getPillarImage(key);
-
+          const to = `/${key}`;
           return (
             <Cards key={key} interactive={false} className="pillar-card">
-              <>
+              <a href={to}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(to); 
+                }}>
                 <div className="card__media pillar-media">
                   <img
                     className="pillar-img"
@@ -65,7 +70,7 @@ export const CardsContainer: FC<CardsContainerProps> = ({ }) => {
                   <div className="card__subtitle">{subtitle}</div>
                   {desc ? <div className="card__body">{desc}</div> : null}
                 </div>
-              </>
+              </a>
             </Cards>
           );
         })}

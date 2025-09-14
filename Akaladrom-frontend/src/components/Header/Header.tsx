@@ -2,6 +2,7 @@ import { type FC, type ReactNode, type HTMLAttributes } from "react";
 import { Title } from "../Title/Title";
 import { LangSelectorSmart } from "../LangSelector/LangSelector.smart.tsx";
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 /**
  * **PROPERTIES OF APP COMPONENT:**
@@ -46,9 +47,10 @@ export const Header: FC<HeaderProps> = ({
   testId,
   ...rest
 }) => {
+  const navigate = useNavigate();
   return (
     <header className={["AppHeader", className].filter(Boolean).join(" ")} data-testid={testId ?? "Header"} {...rest}>
-      <div className="AppHeader__left">{left ?? <Title />}</div>
+      <a onClick={() => navigate('/')} className="AppHeader__left">{left ?? <Title />}</a>
       <div className="AppHeader__center">{center ?? null}</div>
       <div className="AppHeader__right">{right ?? <LangSelectorSmart />}</div>
     </header>

@@ -4,12 +4,13 @@
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #ffffff;
+  border-bottom: 1px solid #a8a8d3;
+  background: #bcbcda;
 }
 
 .AppHeader__left {
   justify-self: start;
+  cursor: pointer;
 }
 
 .AppHeader__center {

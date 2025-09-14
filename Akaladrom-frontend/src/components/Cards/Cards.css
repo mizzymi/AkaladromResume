@@ -5,6 +5,7 @@
   color: #0f172a;
   overflow: hidden;
   user-select: none;
+  box-shadow: #0f172a67 0rem .2rem .5rem;
 }
 .card__content {
   padding: 12px 14px;
