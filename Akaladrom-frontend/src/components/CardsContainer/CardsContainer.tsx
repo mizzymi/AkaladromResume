@@ -5,6 +5,7 @@ import { Cards } from "../Cards/Cards";
 import { getPillarImage } from "../../assets/pillars";
 import "./CardsContainer.css";
 import { useNavigate } from "react-router-dom";
+import { CardsCarousel } from "../CardsCarousel/CardsCarousel";
 
 /**
  * **PROPERTIES OF APP COMPONENT:**
@@ -32,49 +33,40 @@ export const CardsContainer: FC<CardsContainerProps> = ({ }) => {
   const { order, pillars } = useCardsContainer({});
   const { t } = useTranslations({});
   const navigate = useNavigate();
+
   const sortedPillars = useMemo(
-    () => order.map((k) => pillars.find((p) => p.key === k)).filter(Boolean),
+    () => order.map((k) => pillars.find((p) => p.key === k)).filter(Boolean)!,
     [order, pillars]
   );
 
   return (
     <div data-testid="CardsContainer-Component" className="CardsContainer">
-      <div className="cards-grid">
-        {sortedPillars.map((p) => {
-          const pillar = p!;
-          const key = pillar.key;
-          const label = t(`pillars.${key}.label`);
-          const subtitle = t("ui.pillarSubtitle");
-          const desc = t(`pillars.${key}.desc`);
-          const imgSrc = getPillarImage(key);
-          const to = `/${key}`;
-          return (
-            <Cards key={key} interactive={false} className="pillar-card">
-              <a href={to}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(to); 
-                }}>
-                <div className="card__media pillar-media">
-                  <img
-                    className="pillar-img"
-                    src={imgSrc}
-                    alt={label}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                <div className="card__content">
-                  <div className="card__title">{label}</div>
-                  <div className="card__subtitle">{subtitle}</div>
-                  {desc ? <div className="card__body">{desc}</div> : null}
-                </div>
-              </a>
+      <CardsCarousel
+        items={sortedPillars.map((p) => ({
+          id: p!.key,
+          render: (isCenter) => (
+            <Cards interactive={false} className={`pillar-card ${isCenter ? "is-center" : ""}`}>
+              <div className="card__media pillar-media">
+                <img
+                  className="pillar-img"
+                  src={getPillarImage(p!.key)}
+                  alt={t(`pillars.${p!.key}.label`)}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="card__content">
+                <div className="card__title">{t(`pillars.${p!.key}.label`)}</div>
+                <div className="card__subtitle">{t("ui.pillarSubtitle")}</div>
+                {t(`pillars.${p!.key}.desc`) ? (
+                  <div className="card__body">{t(`pillars.${p!.key}.desc`)}</div>
+                ) : null}
+              </div>
             </Cards>
-          );
-        })}
-      </div>
+          )
+        }))}
+        onSelect={(id) => navigate(`/${id}`)}
+      />
     </div>
   );
 };

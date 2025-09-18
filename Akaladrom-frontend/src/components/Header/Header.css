@@ -4,17 +4,21 @@
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  border-bottom: 1px solid #a8a8d3;
-  background: #bcbcda;
+  background: linear-gradient(180deg, var(--card-contrast) 0%, transparent 100%);
 }
 
 .AppHeader__left {
   justify-self: start;
-  cursor: pointer;
 }
 
 .AppHeader__center {
   justify-self: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.AppHeader__center:hover {
+  transform: scale(1.2);
 }
 
 .AppHeader__right {

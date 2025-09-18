@@ -50,8 +50,8 @@ export const Header: FC<HeaderProps> = ({
   const navigate = useNavigate();
   return (
     <header className={["AppHeader", className].filter(Boolean).join(" ")} data-testid={testId ?? "Header"} {...rest}>
-      <a onClick={() => navigate('/')} className="AppHeader__left">{left ?? <Title />}</a>
-      <div className="AppHeader__center">{center ?? null}</div>
+      <div className="AppHeader__left">{center ?? null}</div>
+      <a onClick={() => navigate('/')} className="AppHeader__center">{left ?? <Title />}</a>
       <div className="AppHeader__right">{right ?? <LangSelectorSmart />}</div>
     </header>
   );

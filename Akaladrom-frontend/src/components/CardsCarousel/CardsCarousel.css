@@ -1,0 +1,59 @@
+.cc-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 24px 0;
+}
+
+.cc-stage {
+  perspective: 1600px;
+  overflow: visible;
+  width: 100%;
+}
+
+.cc-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: pan-y;
+  margin: auto;
+}
+
+.cc-card {
+  position: absolute;
+  top: 0;
+  transform-style: preserve-3d;
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease, box-shadow 260ms ease;
+  will-change: transform, opacity;
+}
+
+.cc-card:focus-within,
+.cc-card:hover {
+  box-shadow: 0 10px 40px rgba(0,0,0,.18);
+}
+
+.cc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.85);
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.cc-nav:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.cc-nav--left { left: 8px; }
+.cc-nav--right { right: 8px; }

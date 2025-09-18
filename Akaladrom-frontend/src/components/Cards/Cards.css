@@ -1,44 +1,53 @@
 .card {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #fff;
-  color: #0f172a;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--text);
   overflow: hidden;
   user-select: none;
-  box-shadow: #0f172a67 0rem .2rem .5rem;
+  box-shadow: var(--shadow);
 }
+
 .card__content {
-  padding: 12px 14px;
+  padding: clamp(0.6rem, 1.6vw, 0.9rem) clamp(0.8rem, 2vw, 0.95rem);
   display: grid;
-  gap: 6px;
+  gap: clamp(0.35rem, 1vw, 0.5rem);
 }
+
 .card__title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.2vw, 1.05rem);
 }
+
 .card__subtitle {
-  color: #64748b;
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: clamp(0.88rem, 1.8vw, 0.95rem);
 }
+
 .card__footer {
-  padding: 10px 14px 14px;
+  padding: clamp(0.55rem, 1.6vw, 0.75rem) clamp(0.8rem, 2vw, 0.95rem) clamp(0.8rem, 2vw, 0.95rem);
   display: grid;
-  gap: 8px;
-  border-top: 1px solid #f1f5f9;
+  gap: clamp(0.45rem, 1.4vw, 0.6rem);
+  border-top: var(--border);
 }
+
 .card__btn {
   appearance: none;
-  border: 1px solid #e5e7eb;
-  background: #f8fafc;
-  padding: 6px 10px;
-  border-radius: 8px;
+  border: var(--border);
+  background: color-mix(in oklab, var(--card) 92%, var(--card-contrast));
+  padding: clamp(0.4rem, 1.2vw, 0.55rem) clamp(0.65rem, 1.6vw, 0.75rem);
+  border-radius: var(--radius-md);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+  color: var(--text);
 }
+
 .card__btn:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px #6366f1;
+  outline: 3px solid color-mix(in oklab, var(--accent) 70%, transparent);
+  outline-offset: 2px;
+  box-shadow: none;
 }
+
 .card.is-selected {
-  box-shadow: 0 0 0 3px #6366f1;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 70%, transparent);
 }

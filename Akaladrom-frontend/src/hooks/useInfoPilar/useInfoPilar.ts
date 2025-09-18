@@ -64,22 +64,11 @@ const PILLAR_TO_CONTINENT: Record<AkaladromPillar, AkaContinent> = {
   Anemo: "AltosBrumales",
   Aurora: "Náeryl",
   Dendro: "TierrasMixtas",
-  Elementis: "TulaVarnem",
+  Elementis: "GrietaTercerLatido",
   Geo: "TulaVarnem",
   Malvrec: "Dregvor",
   Pyro: "CuernoDeTierra",
   Veneno: "DesiertoSilencioso",
-};
-
-const PILLAR_TO_PEOPLES: Record<AkaladromPillar, AkaRace[]> = {
-  Anemo: ["Fantasmas"],
-  Aurora: ["Elfos"],
-  Dendro: ["Orcos"],
-  Elementis: ["Enanos"],
-  Geo: ["Demonios", "Orcos"],
-  Malvrec: ["Humanos"],
-  Pyro: ["Bestiales"],
-  Veneno: ["NoMuertos"],
 };
 
 const PILLAR_TO_MAIN_RACE: Record<AkaladromPillar, AkaRace> = {
@@ -96,9 +85,9 @@ const PILLAR_TO_MAIN_RACE: Record<AkaladromPillar, AkaRace> = {
 const PILLAR_TO_CLASSES: Record<AkaladromPillar, AkaClass[]> = {
   Anemo: ["Músico", "Cazador"],
   Aurora: ["Mago", "Arquero"],
-  Dendro: ["Curandero", "Cazador"],
+  Dendro: ["Guerrero", "Cazador"],
   Elementis: ["Mago", "Artificiero"],
-  Geo: ["Guerrero", "Artificiero"],
+  Geo: ["Mago", "Artificiero"],
   Malvrec: ["Asesino", "Brujo"],
   Pyro: ["Guerrero", "Cazador"],
   Veneno: ["Brujo", "Curandero"],
@@ -124,8 +113,6 @@ export interface UseInfoPilarReturn {
 
   /** Continent (macro-region) i18n key segment. */
   continentKey: AkaContinent;
-  /** Peoples (races) i18n key segments. */
-  peoples: AkaRace[];
   /** Main race i18n key segment. */
   mainRace: AkaRace;
   /** Main classes i18n key segments. */
@@ -171,7 +158,6 @@ export const useInfoPilar = ({
     color: meta.color,
     imageSrc,
     continentKey: PILLAR_TO_CONTINENT[key],
-    peoples: PILLAR_TO_PEOPLES[key],
     mainRace: PILLAR_TO_MAIN_RACE[key],
     classes: PILLAR_TO_CLASSES[key],
   };

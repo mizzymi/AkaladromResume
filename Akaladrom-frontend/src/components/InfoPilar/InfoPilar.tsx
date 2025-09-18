@@ -87,18 +87,6 @@ export const InfoPilar: FC<InfoPilarProps> = ({ id }) => {
           {continentDesc && <p>{continentDesc}</p>}
         </div>
 
-        {/* Pueblos (razas relevantes) */}
-        <div className="InfoPilar__card">
-          <h2 className="InfoPilar__subtitle">{t("ui.raceSubtitle")}</h2>
-          <ul className="InfoPilar__list">
-            {info.peoples.map((r) => (
-              <li key={r}>
-                <strong>{t(`races.${r}.label`)}</strong>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Raza principal (con descripción) */}
         <div className="InfoPilar__card">
           <h2 className="InfoPilar__subtitle">
